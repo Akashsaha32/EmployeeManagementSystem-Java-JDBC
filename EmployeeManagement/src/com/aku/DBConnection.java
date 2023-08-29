@@ -6,10 +6,6 @@ import java.sql.DriverManager;
 public class DBConnection {
 	public static Connection con;
 	
-	public DBConnection() {
-		
-	}
-	
 	public static Connection createDBConnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");

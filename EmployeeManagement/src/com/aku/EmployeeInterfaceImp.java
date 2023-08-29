@@ -8,6 +8,21 @@ import java.sql.Statement;
 
 public class EmployeeInterfaceImp implements EmployeeInterface{
 	Connection con;
+	
+	public EmployeeInterfaceImp() {
+		con = DBConnection.createDBConnection();
+		String query = "CREATE TABLE IF NOT EXISTS employee(id int PRIMARY KEY,"
+				+ "name VARCHAR(255) NOT NULL,"
+				+ "salary int NOT NULL,"
+				+ "age int NOT NULL)";
+		try {
+			Statement st = con.createStatement();
+			st.executeUpdate(query);
+			con.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	@Override
 	public void createEmployee(Employee emp) {
